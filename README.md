@@ -1,3 +1,6 @@
+Deployed Link:-
+https://qr-code-generator-ng440.netlify.app/
+
 # QR Code Generator - Advanced Edition
 
 A professional, feature-rich QR code generator web application with real-time preview, customization options, and cloud deployment ready.
