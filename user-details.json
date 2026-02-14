@@ -1,0 +1,18 @@
+{
+  "user": {
+    "name": "Your Name",
+    "email": "your.email@example.com",
+    "phone": "+1 (555) 123-4567",
+    "location": "City, State",
+    "title": "Professional Title",
+    "bio": "Your professional bio here",
+    "linkedIn": "https://linkedin.com/in/yourprofile",
+    "twitter": "https://twitter.com/yourprofile",
+    "github": "https://github.com/yourprofile"
+  },
+  "social": {
+    "facebook": "",
+    "instagram": "",
+    "portfolio": ""
+  }
+}

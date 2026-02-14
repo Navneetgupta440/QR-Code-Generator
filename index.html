@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advanced Professional QR Code Generator with Portfolio">
+    <title>Advanced QR Code Generator Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <span class="logo-text">QR Pro</span>
+                </div>
+                <div class="nav-menu" id="navMenu">
+                    <a href="#" class="nav-link active" data-page="home">Home</a>
+                    <a href="#" class="nav-link" data-page="generator">Generator</a>
+                    <a href="#" class="nav-link" data-page="gallery">Gallery</a>
+                    <a href="#" class="nav-link" data-page="about">About</a>
+                    <a href="#" class="nav-link" data-page="contact">Contact</a>
+                </div>
+                <div class="nav-actions">
+                    <button class="btn-outlined" id="btnSignIn">Sign In</button>
+                    <button class="btn-primary" id="btnSignUp">Sign Up</button>
+                    <button class="hamburger" id="hamburger">☰</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Pages Container -->
+    <div class="pages-container">
+        <!-- Home Page -->
+        <div class="page active" id="home-page">
+            <section class="hero-section">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1 class="hero-title">Advanced QR Code Generator</h1>
+                            <p class="hero-subtitle">Create beautiful, customizable QR codes in seconds. Professional quality, completely free.</p>
+                            <div class="hero-creator">
+                                <div class="creator-photo">
+                                    <img src="img.jpg" alt="Creator" class="creator-avatar">
+                                </div>
+                                <div class="creator-info">
+                                    <p class="creator-name">Built by Navneet Gupta</p>
+                                    <p class="creator-title">Full Stack Developer | MERN Stack Specialist</p>
+                                </div>
+                            </div>
+                            <div class="hero-stats">
+                                <div class="stat">
+                                    <span class="stat-number">10+</span>
+                                    <span class="stat-label">QR Types</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">∞</span>
+                                    <span class="stat-label">Combinations</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">100%</span>
+                                    <span class="stat-label">Client-Side</span>
+                                </div>
+                            </div>
+                            <button class="btn-primary btn-large btn-glow" onclick="navigateTo('generator')">Start Creating →</button>
+                        </div>
+                        <div class="hero-visual">
+                            <div class="qr-preview-hero" id="heroQr">
+                                <img src="QR.jpg" alt="QR Code Example" class="qr-image" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features-section">
+                <div class="container">
+                    <h2>Powerful Features</h2>
+                    <div class="features-grid">
+                        <div class="feature-card advanced">
+                            <div class="feature-icon">🎨</div>
+                            <h3>Custom Colors & Styles</h3>
+                            <p>Choose from preset palettes or create custom color schemes with gradient support</p>
+                        </div>
+                        <div class="feature-card advanced">
+                            <div class="feature-icon">📊</div>
+                            <h3>10+ QR Types</h3>
+                            <p>URL, Text, Email, Phone, SMS, WiFi, vCard, Contact, PDF, App Store links and more</p>
+                        </div>
+                        <div class="feature-card advanced">
+                            <div class="feature-icon">⚙️</div>
+                            <h3>Advanced Settings</h3>
+                            <p>Error correction levels, size presets, format options, and real-time preview</p>
+                        </div>
+                        <div class="feature-card advanced">
+                            <div class="feature-icon">💾</div>
+                            <h3>Multiple Formats</h3>
+                            <p>Export as PNG, JPG, SVG, or WebP with customizable resolution</p>
+                        </div>
+                        <div class="feature-card advanced">
+                            <div class="feature-icon">⚡</div>
+                            <h3>Instant Generation</h3>
+                            <p>Real-time QR code generation as you type. No delays, no server needed</p>
+                        </div>
+                        <div class="feature-card advanced">
+                            <div class="feature-icon">📱</div>
+                            <h3>Fully Responsive</h3>
+                            <p>Works perfectly on desktop, tablet, and mobile devices</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Generator Page -->
+        <div class="page" id="generator-page">
+            <div class="container">
+                <div class="generator-header">
+                    <h2>Professional QR Code Generator</h2>
+                    <p>Create, customize, and download QR codes</p>
+                </div>
+
+                <div class="generator-grid">
+                    <!-- Control Panel -->
+                    <div class="control-panel">
+                        <div class="panel-header">
+                            <h3>Configuration</h3>
+                            <span class="panel-badge">Advanced</span>
+                        </div>
+
+                        <div class="control-section">
+                            <div class="section-title">Content</div>
+                            
+                            <div class="form-group">
+                                <label>QR Type</label>
+                                <select id="qrType" class="form-control">
+                                    <option value="url">🔗 Website URL</option>
+                                    <option value="text">📝 Plain Text</option>
+                                    <option value="email">✉️ Email Address</option>
+                                    <option value="phone">📱 Phone Number</option>
+                                    <option value="sms">💬 SMS Message</option>
+                                    <option value="wifi">📶 WiFi Network</option>
+                                    <option value="contact">👤 Contact Card</option>
+                                    <option value="vcard">💼 vCard</option>
+                                    <option value="location">📍 Location</option>
+                                    <option value="appstore">🎲 App Store</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label id="contentLabel">Enter URL:</label>
+                                <textarea id="qrInput" class="form-control" rows="3" placeholder="https://example.com"></textarea>
+                                <small class="form-hint" id="contentHint">Enter a valid URL</small>
+                            </div>
+                        </div>
+
+                        <div class="control-section">
+                            <div class="section-title">Design</div>
+
+                            <div class="color-controls">
+                                <div class="color-group">
+                                    <label>QR Color</label>
+                                    <div class="color-picker-wrapper">
+                                        <input type="color" id="colorDark" value="#000000" class="color-input" />
+                                        <span class="color-preview" id="colorDarkPreview"></span>
+                                    </div>
+                                </div>
+
+                                <div class="color-group">
+                                    <label>Background</label>
+                                    <div class="color-picker-wrapper">
+                                        <input type="color" id="colorLight" value="#FFFFFF" class="color-input" />
+                                        <span class="color-preview" id="colorLightPreview"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Style Preset</label>
+                                <div class="style-grid">
+                                    <button class="style-btn active" data-style="classic">Classic</button>
+                                    <button class="style-btn" data-style="colorful">Colorful</button>
+                                    <button class="style-btn" data-style="neon">Neon</button>
+                                    <button class="style-btn" data-style="pastel">Pastel</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="control-section">
+                            <div class="section-title">Settings</div>
+
+                            <div class="form-group">
+                                <label>Size: <span class="size-value" id="sizeValue">300</span>px</label>
+                                <input type="range" id="qrSize" min="100" max="800" value="300" class="slider" />
+                                <div class="size-presets">
+                                    <button class="size-preset" data-size="200">Small</button>
+                                    <button class="size-preset" data-size="300">Medium</button>
+                                    <button class="size-preset" data-size="500">Large</button>
+                                    <button class="size-preset" data-size="800">Extra</button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Error Correction</label>
+                                <select id="errorCorrection" class="form-control">
+                                    <option value="L">Low (7% - Fastest)</option>
+                                    <option value="M" selected>Medium (15% - Recommended)</option>
+                                    <option value="Q">Quartile (25%)</option>
+                                    <option value="H">High (30% - Most Reliable)</option>
+                                </select>
+                                <small class="form-hint">Higher = more resistant to damage</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Export Format</label>
+                                <div class="format-grid">
+                                    <button class="format-btn active" data-format="png">PNG</button>
+                                    <button class="format-btn" data-format="jpg">JPG</button>
+                                    <button class="format-btn" data-format="svg">SVG</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="control-actions">
+                            <button class="btn-primary btn-large" id="generateBtn">✨ Generate QR Code</button>
+                            <button class="btn-secondary" id="resetBtn">🔄 Reset</button>
+                        </div>
+                    </div>
+
+                    <!-- Preview Panel -->
+                    <div class="preview-panel">
+                        <div class="panel-header">
+                            <h3>Preview & Export</h3>
+                            <span class="preview-status" id="previewStatus">Ready</span>
+                        </div>
+
+                        <div class="preview-display">
+                            <div class="qr-preview-box" id="qrPreview">
+                                <div class="preview-placeholder">
+                                    <div class="placeholder-icon">📱</div>
+                                    <p>Your QR code will appear here</p>
+                                    <small>Configure settings and click "Generate QR Code"</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="preview-info">
+                            <div class="info-item">
+                                <span class="info-label">Content Length:</span>
+                                <span class="info-value" id="contentLength">0</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">QR Version:</span>
+                                <span class="info-value" id="qrVersion">-</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Data Capacity:</span>
+                                <span class="info-value" id="dataCapacity">-</span>
+                            </div>
+                        </div>
+
+                        <div class="export-actions">
+                            <button class="btn-primary btn-large" id="downloadBtn" disabled>
+                                <span class="btn-icon">⬇️</span> Download
+                            </button>
+                            <button class="btn-secondary" id="copyBtn" disabled>
+                                <span class="btn-icon">📋</span> Copy
+                            </button>
+                            <button class="btn-secondary" id="shareBtn" disabled>
+                                <span class="btn-icon">📤</span> Share
+                            </button>
+                        </div>
+
+                        <div class="qr-history">
+                            <div class="history-header">
+                                <h4>Recent QR Codes</h4>
+                                <button class="history-clear" id="clearHistory">Clear</button>
+                            </div>
+                            <div class="history-list" id="historyList"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Page -->
+        <div class="page" id="gallery-page">
+            <div class="container">
+                <h2>QR Code Gallery</h2>
+                <div class="gallery-grid" id="galleryGrid">
+                    <div class="gallery-placeholder">
+                        <p>No QR codes generated yet.</p>
+                        <p>Create some QR codes to see them here!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Page -->
+        <div class="page active" id="about-page">
+            <div class="container">
+                <h2>About Me</h2>
+                <div class="profile-container">
+                    <div class="profile-photo-section">
+                        <div class="profile-photo-wrapper">
+                           <img src="img.jpg" alt="Creator" class="creator-avatar">
+                        </div>
+                    </div>
+                    <div class="profile-card">
+                        <h3 id="profileName">Navneet Gupta</h3>
+                        <p class="profile-title" id="profileTitle">Full Stack Developer | MERN Stack Specialist</p>
+                        <p class="profile-location" id="profileLocation">📍 Greater Noida, India</p>
+                        <p class="profile-bio" id="profileBio">Full Stack Developer with expertise in MERN stack development. Passionate about building scalable web applications with modern technologies.</p>
+
+                        <div class="profile-contact">
+                            <div class="contact-item">
+                                <strong>📧 Email:</strong>
+                                <a href="mailto:indiagupta33@gmail.com" id="profileEmail">indiagupta33@gmail.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <strong>📱 Phone:</strong>
+                                <a href="tel:+917317567350" id="profilePhone">+91-7317567350</a>
+                            </div>
+                            <div class="contact-item">
+                                <strong>🎓 Education:</strong>
+                                <span id="profileEducation">B.Tech CSE, AKTU Lucknow (2023-2027)</span>
+                            </div>
+                        </div>
+
+                        <div class="profile-skills">
+                            <h4>Technical Skills</h4>
+                            <div class="skills-grid">
+                                <div class="skill-category">
+                                    <strong>Frontend:</strong>
+                                    <div class="skill-tags">
+                                        <span class="skill-tag">React.js</span>
+                                        <span class="skill-tag">JavaScript</span>
+                                        <span class="skill-tag">HTML/CSS</span>
+                                        <span class="skill-tag">Tailwind</span>
+                                    </div>
+                                </div>
+                                <div class="skill-category">
+                                    <strong>Backend:</strong>
+                                    <div class="skill-tags">
+                                        <span class="skill-tag">Node.js</span>
+                                        <span class="skill-tag">Express.js</span>
+                                        <span class="skill-tag">REST APIs</span>
+                                    </div>
+                                </div>
+                                <div class="skill-category">
+                                    <strong>Database:</strong>
+                                    <div class="skill-tags">
+                                        <span class="skill-tag">MongoDB</span>
+                                        <span class="skill-tag">MySQL</span>
+                                        <span class="skill-tag">PostgreSQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-experience">
+                            <h4>Professional Experience</h4>
+                            <div class="experience-item">
+                                <strong>Full Stack Developer Intern</strong>
+                                <p>Bharat Intern, Uttar Pradesh (Aug 2024 - Sept 2024)</p>
+                                <ul>
+                                    <li>Engineered full-stack web applications using MERN stack</li>
+                                    <li>Architected RESTful APIs with JWT authentication and role-based access control</li>
+                                    <li>Optimized MongoDB schemas with strategic indexing (40% faster queries)</li>
+                                    <li>Crafted responsive React.js interfaces with 95+ Lighthouse scores</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="https://linkedin.com/in/navneet-gupta" id="linkedinLink" target="_blank" class="social-btn">🔗 LinkedIn</a>
+                            <a href="https://github.com/navneetgupta440" id="githubLink" target="_blank" class="social-btn">💻 GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contact Page -->
+        <div class="page" id="contact-page">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <div class="contact-grid">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="contactName" class="form-control" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" id="contactEmail" class="form-control" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone (Optional)</label>
+                            <input type="tel" id="contactPhone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <input type="text" id="contactSubject" class="form-control" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea id="contactMessage" class="form-control" rows="5" required=""></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary btn-large">Send Message</button>
+                    </form>
+
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <div class="contact-card">
+                            <div class="contact-item">
+                                <strong>📧 Email:</strong>
+                                <a href="mailto:indiagupta33@gmail.com" id="contactInfoEmail">indiagupta33@gmail.com</a>
+                            </div>
+                            <div class="contact-item">
+                                <strong>📱 Phone:</strong>
+                                <a href="tel:+917317567350" id="contactInfoPhone">+91-7317567350</a>
+                            </div>
+                            <div class="contact-item">
+                                <strong>📍 Location:</strong>
+                                <span id="contactInfoLocation">Greater Noida, India</span>
+                            </div>
+                            <div class="contact-item">
+                                <strong>🔗 LinkedIn:</strong>
+                                <a href="https://linkedin.com/in/navneet-gupta" target="_blank">linkedin.com/in/navneet-gupta</a>
+                            </div>
+                            <div class="contact-item">
+                                <strong>💻 GitHub:</strong>
+                                <a href="https://github.com/navneetgupta440" target="_blank">github.com/navneetgupta440</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!-- Sign In Modal -->
+    <div class="modal" id="signin-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('signin-modal')">×</button>
+            <h2>Welcome Back</h2>
+            <form id="signin-form">
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="signin-email" class="form-control" required="">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="signin-password" class="form-control" required="">
+                </div>
+                <button type="submit" class="btn-primary btn-large">Sign In</button>
+                <p class="form-link">Don't have an account? <a href="#" id="to-signup" onclick="switchModal('signin-modal', 'signup-modal'); return false;">Create Account</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div class="modal" id="signup-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('signup-modal')">×</button>
+            <h2>Create Your Account</h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="signup-name" class="form-control" required="">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="signup-email" class="form-control" required="">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="signup-password" class="form-control" required="">
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="signup-confirm" class="form-control" required="">
+                </div>
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="agreeTerms" required="">
+                    <label for="agreeTerms">I agree to the Terms of Service</label>
+                </div>
+                <button type="submit" class="btn-primary btn-large">Create Account</button>
+                <p class="form-link">Already have an account? <a href="#" id="to-signin" onclick="switchModal('signup-modal', 'signin-modal'); return false;">Sign in</a></p>
+            </form>
+        </div>
+    </div>
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 QR Code Generator Pro. Advanced, professional, and completely free.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">GitHub</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
